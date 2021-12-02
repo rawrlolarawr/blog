@@ -10,11 +10,13 @@
   "dependencies": {
     "next": "12.0.4",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-syntax-highlighter": "^15.4.5"
   },
   "devDependencies": {
     "eslint": "7.32.0",
     "eslint-config-next": "12.0.4",
-    "gray-matter": "^4.0.3"
+    "gray-matter": "^4.0.3",
+    "next-mdx-remote": "^3.0.8"
   }
 }
