@@ -11,23 +11,20 @@ In this post we will cover using newer React conventions that were not done just
 The lesson plan for Flatirons React section may mention functional components, however the majority of labs and codealongs are using class syntax.
 
 <SyntaxHighlighter language="javascript">
-  {`
-	import React, { Component } from 'react'
+	{`
+		import React, { Component } from 'react'
 
-	export default class App extends Component {
-	render() {
-		return (
-			<div>
-				<h1>My App</h1>
-			</div>
-			)
+		export default class App extends Component {
+			render() {
+				return (
+					<div>
+						<h1>My App</h1>
+					</div>
+				)
+			}
 		}
-	}
-  `}
+	`}
 </SyntaxHighlighter>
-```
-
-```
 
 While this may be nice and makes writing javascript similar to other OOP languages. This approach seems very clunky and unnecessary for smaller components that do not require much logic. The above code snippet can be written like so
 

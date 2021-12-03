@@ -34,15 +34,14 @@ After this was said and done I built my form with a function and used a fetch me
 
 Once I got an object containing all my JSON from the DB I can use my HTML factory to build out the elements and append them to my page
 
-<SyntaxHighlighter language="javascript">
-  {`
+<SyntaxHighlighter language="javascript" children={`
     const createPostCards = function(posts){
         let postsArr = posts.data.reverse()
         for(const post of postsArr){
-            let div = htmlFactory.build('div', 'card', `post-id-${post.id}`)
-            let title = htmlFactory.build('h3', 'card-title', `card-title-${post.id}`, post.attributes.title)
-            let content = htmlFactory.build('p', 'card-content', `card-content-${post.id}`, post.attributes.content)
-            let comments = htmlFactory.build('ul', 'comment-list', `comment-list-${post.id}`)
+            let div = htmlFactory.build('div', 'card', \`post-id-\${post.id}\`)
+            let title = htmlFactory.build('h3', 'card-title', \`card-title-\${post.id}\`, post.attributes.title)
+            let content = htmlFactory.build('p', 'card-content', \`card-content-\${post.id}\`, post.attributes.content)
+            let comments = htmlFactory.build('ul', 'comment-list', \`comment-list-\${post.id}\`)
 
             main.appendChild(div)
             div.appendChild(title)
@@ -50,7 +49,7 @@ Once I got an object containing all my JSON from the DB I can use my HTML factor
             div.appendChild(comments)
 
             for(const comment of post.attributes.comments){
-                let li = htmlFactory.build('li', 'comment', `comment-id-${comment.id}`)
+                let li = htmlFactory.build('li', 'comment', \`comment-id-\${comment.id}\`)
                 comments.appendChild(li)
                 li.innerText = comment.content
             }
@@ -58,9 +57,36 @@ Once I got an object containing all my JSON from the DB I can use my HTML factor
             div.addEventListener('click', () => {
                 fetchPost(post)
             })
-        }
-    }    
-  `}
+          }
+      }
+    `}>
+  {/* children={`
+    const createPostCards = function(posts){
+        let postsArr = posts.data.reverse()
+        for(const post of postsArr){
+            let div = htmlFactory.build('div', 'card', \`post-id-\${post.id}\`)
+            let title = htmlFactory.build('h3', 'card-title', \`card-title-\${post.id}\`, post.attributes.title)
+            let content = htmlFactory.build('p', 'card-content', \`card-content-\${post.id}\`, post.attributes.content)
+            let comments = htmlFactory.build('ul', 'comment-list', \`comment-list-\${post.id}\`)
+
+            main.appendChild(div)
+            div.appendChild(title)
+            div.appendChild(content)
+            div.appendChild(comments)
+
+            for(const comment of post.attributes.comments){
+                let li = htmlFactory.build('li', 'comment', \`comment-id-\${comment.id}\`)
+                comments.appendChild(li)
+                li.innerText = comment.content
+            }
+
+            div.addEventListener('click', () => {
+                fetchPost(post)
+            })
+          }
+      }
+    `}  */}
+
 </SyntaxHighlighter>
 
 Then after following the same logic for the comments the web app works and we survived high noon in vanilla Javascript.

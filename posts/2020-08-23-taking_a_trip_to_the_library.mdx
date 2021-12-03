@@ -14,9 +14,7 @@ After reading the main documentation we now know how to install the gem to our a
 
 And as with any gem this is no difference the first step is to add the gem to your gemfile using
 
-```
-gem 'devise'
-```
+// gem 'devise'
 
 then run `bundle install`
 
@@ -24,9 +22,7 @@ Now we have the gem added and the code is available to use so theoretically we c
 
 The next step is to run the generator which should be second nature if you are comfortable with Rails.
 
-```
-rails generate devise:install
-```
+// rails generate devise:install
 
 After this command is run Devise floods the console with instructions to follow to set it up.
 
@@ -34,15 +30,14 @@ The biggest one listed is to set up a default path for the mailer. This set need
 
 The devise documentation lists this as a possible configuration to be added to config/environments/development.rb
 
-```
-config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-```
+
+// config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
 Now you are ready to start using Devise so lets set up a Devise model using another generator
 
-```
-rails generate devise MODELNAME
-```
+
+// rails generate devise MODELNAME
+
 
 You will see this runs like a model generator in which it creates your model and migration for you. However, on closer inspection you will see a lot more added into it such as for the migration
 
