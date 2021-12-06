@@ -2,8 +2,6 @@
 title: Taking a trip to the Library
 date: 'Feb 24th, 2020'
 description: Using Ruby gems
-# thumbnailUrl: '/javascript-functions-thumbnail.jpeg'
-tags: ['functions', 'javascript']
 ---
 
 The main attribute that all developers share is that we are lazy. This brings us to the usefulness of libraries or gems(Ruby). Unfortunately, this is not as adding one line and using it, generally there is a bunch of setup to go about before using the new features. So in this blog post I will be going over setting up devise for user authentication in Ruby on Rails.
@@ -41,8 +39,7 @@ Now you are ready to start using Devise so lets set up a Devise model using anot
 
 You will see this runs like a model generator in which it creates your model and migration for you. However, on closer inspection you will see a lot more added into it such as for the migration
 
-<SyntaxHighlighter language="ruby">
-  {`
+```
     class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       def change
         create_table :users do |t|
@@ -87,8 +84,7 @@ You will see this runs like a model generator in which it creates your model and
         # add_index :users, :unlock_token,         unique: true
       end
     end
-  `}
-</SyntaxHighlighter>
+```
 
 These will add in everything you would need to use modules build into devise.
 

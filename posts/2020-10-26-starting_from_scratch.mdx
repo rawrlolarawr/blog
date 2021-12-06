@@ -2,8 +2,6 @@
 title: Starting from Scratch
 date: 'Oct 26th, 2020'
 description: Javascript
-# thumbnailUrl: '/javascript-functions-thumbnail.jpeg'
-tags: ['functions', 'javascript']
 ---
 
 This post is following my first dive into Javascript. Everyother programming language I've encountered has had best practices and guidelines to follow when programming and as a creature of habit this is something I relied on heavily. However, enter stage right is Javascript, or the wild wild west of programming where there's always another way to complete something you're working on.
@@ -14,8 +12,7 @@ While JS seems complicated, its simplicity is what causes it. JS has a very smal
 
 So... onto my project. I started with a blank HTML page as my goal was to build everything with JS. Therefore I started with building out a class that built my HTML elements for me.
 
-<SyntaxHighlighter language="javascript">
-  {`
+```
     class htmlFactory {
         static build(tag, klass, id, content = null){
             let element = document.createElement(tag)
@@ -27,14 +24,13 @@ So... onto my project. I started with a blank HTML page as my goal was to build 
             return element
         }
     }
-  `}
-</SyntaxHighlighter>
+```
 
 After this was said and done I built my form with a function and used a fetch method to retreive all the posts in my data base and went from there.
 
 Once I got an object containing all my JSON from the DB I can use my HTML factory to build out the elements and append them to my page
 
-<SyntaxHighlighter language="javascript" children={`
+```
     const createPostCards = function(posts){
         let postsArr = posts.data.reverse()
         for(const post of postsArr){
@@ -59,34 +55,6 @@ Once I got an object containing all my JSON from the DB I can use my HTML factor
             })
           }
       }
-    `}>
-  {/* children={`
-    const createPostCards = function(posts){
-        let postsArr = posts.data.reverse()
-        for(const post of postsArr){
-            let div = htmlFactory.build('div', 'card', \`post-id-\${post.id}\`)
-            let title = htmlFactory.build('h3', 'card-title', \`card-title-\${post.id}\`, post.attributes.title)
-            let content = htmlFactory.build('p', 'card-content', \`card-content-\${post.id}\`, post.attributes.content)
-            let comments = htmlFactory.build('ul', 'comment-list', \`comment-list-\${post.id}\`)
-
-            main.appendChild(div)
-            div.appendChild(title)
-            div.appendChild(content)
-            div.appendChild(comments)
-
-            for(const comment of post.attributes.comments){
-                let li = htmlFactory.build('li', 'comment', \`comment-id-\${comment.id}\`)
-                comments.appendChild(li)
-                li.innerText = comment.content
-            }
-
-            div.addEventListener('click', () => {
-                fetchPost(post)
-            })
-          }
-      }
-    `}  */}
-
-</SyntaxHighlighter>
+```
 
 Then after following the same logic for the comments the web app works and we survived high noon in vanilla Javascript.
